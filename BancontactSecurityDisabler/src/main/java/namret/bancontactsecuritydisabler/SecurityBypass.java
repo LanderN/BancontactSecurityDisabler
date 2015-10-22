@@ -12,6 +12,7 @@ import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
 /**
  * This module bypasses the security in the Bancontact app
  * Created by namret on 21/10/2015 (Great Scott!).
+ * Last updated: 22/10/2015
  */
 public class SecurityBypass implements IXposedHookLoadPackage {
 
@@ -32,7 +33,12 @@ public class SecurityBypass implements IXposedHookLoadPackage {
                 findAndHookMethod("ᴵ", lpparam.classLoader, "ˊ", XC_MethodReplacement.returnConstant(false));
                 findAndHookMethod("ᴵ", lpparam.classLoader, "ˋ", Context.class,  XC_MethodReplacement.returnConstant(false));
                 findAndHookMethod("ᴵ", lpparam.classLoader, "ˋ", XC_MethodReplacement.returnConstant(false));
+                aUX aux = new aUX();
+                aux.ˊ = Boolean.toString(false);
+                aux.ˋ = "detectFlag:" + true + " | detectUsbDebug:" + false;
 
+                //Method not working (bypassing USB Debugging detection) -> immediate fail
+                //findAndHookMethod("ˑ", lpparam.classLoader, "ˊ", Context.class, XC_MethodReplacement.returnConstant(aux));
             }
             catch (NoSuchMethodError e)
             {
@@ -41,4 +47,5 @@ public class SecurityBypass implements IXposedHookLoadPackage {
         }
     }
 }
+
 
