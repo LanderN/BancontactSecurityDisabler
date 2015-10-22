@@ -35,7 +35,7 @@ public class SecurityBypass implements IXposedHookLoadPackage {
                 findAndHookMethod("ᴵ", lpparam.classLoader, "ˋ", XC_MethodReplacement.returnConstant(false));
                 aUX aux = new aUX();
                 aux.ˊ = Boolean.toString(false);
-                aux.ˋ = "detectFlag:" + true + " | detectUsbDebug:" + false;
+                aux.ˋ = "detectFlag:" + false + " | detectUsbDebug:" + false;
 
                 //Method not working (bypassing USB Debugging detection) -> immediate fail
                 //findAndHookMethod("ˑ", lpparam.classLoader, "ˊ", Context.class, XC_MethodReplacement.returnConstant(aux));
